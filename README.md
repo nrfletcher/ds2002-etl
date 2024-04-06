@@ -1,6 +1,25 @@
 # Data Science ETL Project
-- Riley Fletcher
+- Author: Riley Fletcher
 - Focus: Automotive Industry
-## Notes
+- Date: 4/6/2024
+## Intro
+- This project utilizes SQLite by downloading the bundle distribution and directly accessing it via the executables provided.
+- The .gitignore specifies these executables, and sqlite3.exe is required to recreate the steps for this project.
+```sql
+./sqlite3.exe automotives.db # Lets us access database
+```
+- We can use the interactive shell, but Python scripts are used for everything in this project.
 
+## Data Sources
+- Free Tuning SQL Sample Database https://www.teoalida.com/cardatabase/tuning/
+- Manufacturers Gist https://gist.github.com/OdeToCode/582e9c044eee5882d54a6e5997c0be52#file-manufacturers-csv
+
+## Database Schema & Creation
+- With SQLite3, database creation is quite simple - using the connect function will either connect to an existing database, or if that database does not exist, simply creates it instead and continues on.
+### Tables
+- Manufacturers
+- Chiptuners
+- Cars
+
+## Environment Variables
 The .env folder is included in the .gitignore, which contains API keys. To use this project you will need your own API key.
