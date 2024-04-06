@@ -1,33 +1,12 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jul 03, 2020 at 01:31 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `test`
---
+-- Database: `my_database`
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dyno_chiptuning_sample`
+-- Table structure for table `chiptuners`
 --
 
-CREATE TABLE `dyno_chiptuning_sample` (
+CREATE TABLE `chiptuners` (
   `Engine URL` varchar(95) DEFAULT NULL,
   `Name` varchar(45) DEFAULT NULL,
   `Make` varchar(3) DEFAULT NULL,
@@ -50,19 +29,13 @@ CREATE TABLE `dyno_chiptuning_sample` (
   `Engine number` varchar(9) DEFAULT NULL,
   `Read options` varchar(283) DEFAULT NULL,
   `Additional options` varchar(84) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ;
 
 --
 -- Dumping data for table `dyno_chiptuning_sample`
 --
 
-INSERT INTO `dyno_chiptuning_sample` (`Engine URL`, `Name`, `Make`, `Model`, `Generation`, `Engine`, `BHP standard`, `BHP tuned`, `BHP difference`, `TORQUE standard`, `TORQUE tuned`, `TORQUE difference`, `Type of fuel`, `Method`, `Tuningtype`, `Cylinder content`, `Engine ECU`, `Compression ratio`, `Bore X stroke`, `Engine number`, `Read options`, `Additional options`) VALUES
-('Car models & engines database for tuning companies', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('Source of data: dyno-chiptuningfiles.com', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('Compiled in Excel by Teoalida ? cardatabase.teoalida.com', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('SAMPLE database including BMW 3-Series (130 rows)', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('Visit above website for the FULL database (90+ makes, 9000+ rows)', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('See \"Statistics\" sheet of this sample for list of makes included and number of models for each', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+INSERT INTO `chiptuners` (`Engine URL`, `Name`, `Make`, `Model`, `Generation`, `Engine`, `BHP standard`, `BHP tuned`, `BHP difference`, `TORQUE standard`, `TORQUE tuned`, `TORQUE difference`, `Type of fuel`, `Method`, `Tuningtype`, `Cylinder content`, `Engine ECU`, `Compression ratio`, `Bore X stroke`, `Engine number`, `Read options`, `Additional options`) VALUES
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-318-tds-90hp/', 'BMW 3 serie 318 TDS 90hp', 'BMW', '3 serie', 'E36', '318 TDS 90hp', '90hp', '115hp ', '25hp ', '190Nm', '240Nm', '50Nm', 'Diesel', 'Chiptuning', 'Stage 1', '1665 CC', 'Bosch EDC16C31', '22,0 : 1', '90,0 X 82,8 mm', '174T1', '', 'EGR OFF;DPF OFF;DTC Removal;FLAPS;Vmax;Adblue;'),
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-323i-170hp/', 'BMW 3 serie 323i 170hp', 'BMW', '3 serie', 'E36', '323i 170hp', '170hp', '185hp ', '15hp ', '245Nm', '260Nm', '15Nm', 'Petrol', 'Chiptuning', 'Stage 1', '2494 CC', 'Siemens/Continental MS41', '10,5 : 1', '84,0 X 75,0 mm', 'M52B25', 'Alientech Kess;Alientech Powergate;CMD OBD;Eprom programmer ;FGtech ;MPPS ;', 'DECAT;FLAPS;Vmax;Anti lag;'),
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-325-td-115hp/', 'BMW 3 serie 325 TD 115hp', 'BMW', '3 serie', 'E36', '325 TD 115hp', '115hp', '140hp ', '25hp ', '245Nm', '285Nm', '40Nm', 'Diesel', 'Chiptuning', 'Stage 1', '2497 CC', 'Bosch EDC16C31', '22,0 : 1', '80,0 X 82,8 mm', '256T1', '', 'EGR OFF;DPF OFF;DTC Removal;FLAPS;Vmax;Adblue;'),
@@ -154,7 +127,7 @@ INSERT INTO `dyno_chiptuning_sample` (`Engine URL`, `Name`, `Make`, `Model`, `Ge
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-318i-1500cc-136hp/', 'BMW 3 serie 318i (1500cc) 136hp', 'BMW', '3 serie', 'F3x LCI - 06 / 2015 - 2019', '318i (1500cc) 136hp', '136hp', '165hp ', '29hp ', '220Nm', '300Nm', '80Nm', 'Petrol', 'Chiptuning', 'Stage 1', '1499 CC', 'Bosch MEVD17.2.3 / Bosch MG1', '11,0 : 1', '82,0 X 94,6 mm', 'B38A15M0', 'Alientech Kess;Alientech KTAG;Autotuner Bench;Autotuner OBD;Bitbox ;CMD CMD Bench;CMD OBD;Dimsport Genius ;Magic Motorsport Bench / Flex;Magic Motorsport MAGPRO Bootmode;Magic Motorsport MAGPRO OBD;PCM-Flash ;', 'DTC Removal;Pop & Bang Crackle map;START/STOP OFF;DECAT;FLAPS;Vmax;Anti lag;'),
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-320d-190hp/', 'BMW 3 serie 320D 190hp', 'BMW', '3 serie', 'F3x LCI - 06 / 2015 - 2019', '320D 190hp', '190hp', '220hp ', '30hp ', '400Nm', '440Nm', '40Nm', 'Diesel', 'Chiptuning', 'Stage 1', '1995 CC', 'Bosch EDC17C50 / Bosch EDC17C56 / Bosch MD1', '16,5 : 1', '84,0 X 90,0 mm', 'B47D20A', 'Alientech Kess;Alientech KTAG;Autotuner Bench;Autotuner OBD;CMD OBD;CMD Tricore Boottool;Dimsport Genius ;Dimsport New Trasdata ;Magic Motorsport Bench / Flex;Magic Motorsport MAGPRO OBD;', 'EGR OFF;DPF OFF;DTC Removal;Pop & Bang Crackle map;START/STOP OFF;FLAPS;Vmax;Adblue;'),
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-320d-efficient-dynamics-163hp/', 'BMW 3 serie 320D Efficient dynamics 163hp', 'BMW', '3 serie', 'F3x LCI - 06 / 2015 - 2019', '320D Efficient dynamics 163hp', '163hp', '220hp ', '57hp ', '400Nm', '440Nm', '40Nm', 'Diesel', 'Chiptuning', 'Stage 1', '1995 CC', 'Bosch EDC17C41 / Bosch MD1', '16,5 : 1', '84,0 X 90,0 mm', 'B47D20A', 'Autotuner OBD;Byteshooter ;CMD OBD;CMD Tricore Boottool;', 'EGR OFF;DPF OFF;DTC Removal;START/STOP OFF;FLAPS;Vmax;Adblue;');
-INSERT INTO `dyno_chiptuning_sample` (`Engine URL`, `Name`, `Make`, `Model`, `Generation`, `Engine`, `BHP standard`, `BHP tuned`, `BHP difference`, `TORQUE standard`, `TORQUE tuned`, `TORQUE difference`, `Type of fuel`, `Method`, `Tuningtype`, `Cylinder content`, `Engine ECU`, `Compression ratio`, `Bore X stroke`, `Engine number`, `Read options`, `Additional options`) VALUES
+INSERT INTO `chiptuners` (`Engine URL`, `Name`, `Make`, `Model`, `Generation`, `Engine`, `BHP standard`, `BHP tuned`, `BHP difference`, `TORQUE standard`, `TORQUE tuned`, `TORQUE difference`, `Type of fuel`, `Method`, `Tuningtype`, `Cylinder content`, `Engine ECU`, `Compression ratio`, `Bore X stroke`, `Engine number`, `Read options`, `Additional options`) VALUES
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-320i-184hp/', 'BMW 3 serie 320i 184hp', 'BMW', '3 serie', 'F3x LCI - 06 / 2015 - 2019', '320i 184hp', '184hp', '274hp ', '90hp ', '290Nm', '420Nm', '130Nm', 'Petrol', 'Chiptuning', 'Stage 1', '1997 CC', 'Bosch MEVD17.2', '10,1 : 1', '84,0 X 90,1 mm', 'B48B20M0', 'Alientech Kess;Alientech KTAG;Autotuner OBD;CMD CMD Bench;CMD OBD;CMD Tricore Boottool;Dimsport Genius ;Dimsport New Trasdata ;Femto ;Magic Motorsport Bench / Flex;Magic Motorsport MAGPRO OBD;', 'DTC Removal;Pop & Bang Crackle map;START/STOP OFF;DECAT;FLAPS;Vmax;Anti lag;'),
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-320i-184hp-b48/', 'BMW 3 serie 320i 184hp (B48)', 'BMW', '3 serie', 'F3x LCI - 06 / 2015 - 2019', '320i 184hp (B48)', '184hp', '274hp ', '90hp ', '290Nm', '420Nm', '130Nm', 'Petrol', 'Chiptuning', 'Stage 1', '1997 CC', 'Bosch MG1CS003', '10,1 : 1', '84,0 X 90,1 mm', 'B48A20M0', 'Alientech Kess;Alientech KTAG;Autotuner Bench;Autotuner Bootmode;Autotuner OBD;bFlash OBD;Bitbox ;CMD OBD;Dimsport Genius ;Femto ;Magic Motorsport Bench / Flex;Magic Motorsport MAGPRO OBD;', 'DTC Removal;Pop & Bang Crackle map;START/STOP OFF;DECAT;FLAPS;Vmax;'),
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-320i-xdrive-184hp/', 'BMW 3 serie 320i xDrive 184hp', 'BMW', '3 serie', 'F3x LCI - 06 / 2015 - 2019', '320i xDrive 184hp', '184hp', '274hp ', '90hp ', '270Nm', '420Nm', '150Nm', 'Petrol', 'Chiptuning', 'Stage 1', '1997 CC', 'Bosch MEVD17.2 / Bosch MG1CS003', '10,1 : 1', '84,0 X 90,1 mm', 'B48B20A', 'Autotuner OBD;Bitbox ;CMD OBD;Dimsport New Trasdata ;', 'DTC Removal;Pop & Bang Crackle map;START/STOP OFF;DECAT;FLAPS;Vmax;Anti lag;'),
@@ -193,9 +166,7 @@ INSERT INTO `dyno_chiptuning_sample` (`Engine URL`, `Name`, `Make`, `Model`, `Ge
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-gt-330i-252hp/', 'BMW 3 serie GT 330i 252hp', 'BMW', '3 serie GT', 'F34 LCI - 2016 ->', '330i 252hp', '252hp', '287hp ', '35hp ', '350Nm', '450Nm', '100Nm', 'Petrol', 'Chiptuning', 'Stage 1', '1998 CC', 'Bosch MG1', '10,1 : 1', '82,0 X 94,6 mm', 'B48B20A', 'Autotuner OBD;', 'DTC Removal;START/STOP OFF;Vmax;Anti lag;'),
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-gt-335d-313hp-7140/', 'BMW 3 serie GT 335D 313hp', 'BMW', '3 serie GT', 'F34 LCI - 2016 ->', '335D 313hp', '313hp', '360hp ', '47hp ', '630Nm', '700Nm', '70Nm', 'Diesel', 'Chiptuning', 'Stage 1', '2993 CC', '', '16,5 : 1', '84,0 X 90,0 mm', 'N57D30B', '', 'EGR OFF;DPF OFF;DTC Removal;START/STOP OFF;FLAPS;Vmax;Adblue;'),
 ('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-gt-340i-326hp/', 'BMW 3 serie GT 340i 326hp', 'BMW', '3 serie GT', 'F34 LCI - 2016 ->', '340i 326hp', '326hp', '400hp ', '74hp ', '450Nm', '580Nm', '130Nm', 'Petrol', 'Chiptuning', 'Stage 1', '2998 CC', 'Bosch MG1', '11,0 : 1', '82,0 X 94,6 mm', 'B58B30A', '', 'DTC Removal;START/STOP OFF;Vmax;Anti lag;'),
-('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-gt-340i-performance-package-360hp/', 'BMW 3 serie GT 340i Performance Package 360hp', 'BMW', '3 serie GT', 'F34 LCI - 2016 ->', '340i Performance Package 360hp', '360hp', '400hp ', '40hp ', '500Nm', '580Nm', '80Nm', 'Petrol', 'Chiptuning', 'Stage 1', '2998 CC', '', '11,0 : 1', '82,0 X 94,6 mm', 'B58B30A', '', 'DTC Removal;START/STOP OFF;Vmax;Anti lag;'),
-('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
-COMMIT;
+('https://www.dyno-chiptuningfiles.com/tuning-file/bmw-3-serie-gt-340i-performance-package-360hp/', 'BMW 3 serie GT 340i Performance Package 360hp', 'BMW', '3 serie GT', 'F34 LCI - 2016 ->', '340i Performance Package 360hp', '360hp', '400hp ', '40hp ', '500Nm', '580Nm', '80Nm', 'Petrol', 'Chiptuning', 'Stage 1', '2998 CC', '', '11,0 : 1', '82,0 X 94,6 mm', 'B58B30A', '', 'DTC Removal;START/STOP OFF;Vmax;Anti lag;');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
