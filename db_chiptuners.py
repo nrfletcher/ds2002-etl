@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to the SQLite database
-conn = sqlite3.connect('my_database.db')
+conn = sqlite3.connect('automotives.db')
 cursor = conn.cursor()
 
 # Execute the SQL script

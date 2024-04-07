@@ -1,7 +1,7 @@
 import csv
 import sqlite3
 
-conn = sqlite3.connect('my_database.db')
+conn = sqlite3.connect('automotives.db')
 cursor = conn.cursor()
 
 # Create the 'manufacturers' table
