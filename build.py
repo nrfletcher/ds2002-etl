@@ -16,3 +16,5 @@ for command in commands:
     print(f"Output for {command}:")
     print(stdout.decode())
     print(stderr.decode())
+
+print("All database scripts run, your current directory should now contain 'automotives.db.' If it does not, check individual script outputs above (empty if successful).")

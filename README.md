@@ -11,7 +11,7 @@
 ### Database Init
 - To build the database, simply run the setup script in the root directory.
 ```bash
-python db_run.py
+python build.py
 ```
 - If successful, there should now be an 'automotives.db' file in the root directory. Now, we can interact using SQLite3.exe or sqlite3 if on PATH.
 ```sql
@@ -37,15 +37,9 @@ select country, gdp from country_stat where gdp > 1;
 # Shows us how many of each car make exist in cars table
 select count(make), make from cars group by make;
 
-# Get all car manufacturers which are based in countries ranked top 10 for overall happiness
-select m.make, m.country
-from manufacturers m
-join country c on m.country_id = c.country_id
-join country_stat cs on c.country_id = cs.country_id
-where cs.rank <= 10
-group by m.make;
+# Get all car manufacturers which are based in countries ranked top 10 for overall happiness select m.make, m.country from manufacturers m join country c on m.country_id = c.country_id join country_stat cs on c.country_id = cs.country_id where cs.rank <= 10 group by m.make;
 
-# See how many major car manufacturers each country has (ascending rank)
+# See how many major car manufacturers each country has (ascending order)
 select count(country), country from manufacturers group by country order by count(country);
 
 # Shows us statistics for all countries with a major car manufacturer
@@ -53,7 +47,7 @@ select * from country_stat where country_id > 0;
 ```
 
 ## Database Schema & Creation
-- With SQLite3, database creation is quite simple - using the connect function will either connect to an existing database, or if that database does not exist, simply creates it instead and continues on.
+- With SQLite3, database creation is simple - using the connect function will either connect to an existing database, or if that database does not exist, simply creates it instead and continues on.
 ### Tables
 - Manufacturers (Car manufacturers) (foreign key association to country via country_id, foreign key associations to chiptuners and cars via make_id)
 - Chiptuners (Instances of car modification specifications) (foreign key association with manufacturers via make_id)
