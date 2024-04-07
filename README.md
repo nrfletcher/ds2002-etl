@@ -37,7 +37,8 @@ select country, gdp from country_stat where gdp > 1;
 # Shows us how many of each car make exist in cars table
 select count(make), make from cars group by make;
 
-# Get all car manufacturers which are based in countries ranked top 10 for overall happiness select m.make, m.country from manufacturers m join country c on m.country_id = c.country_id join country_stat cs on c.country_id = cs.country_id where cs.rank <= 10 group by m.make;
+# Get all car manufacturers which are based in countries ranked top 10 for overall happiness 
+select m.make, m.country from manufacturers m join country c on m.country_id = c.country_id join country_stat cs on c.country_id = cs.country_id where cs.rank <= 10 group by m.make;
 
 # See how many major car manufacturers each country has (ascending order)
 select count(country), country from manufacturers group by country order by count(country);
