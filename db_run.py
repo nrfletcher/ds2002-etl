@@ -2,11 +2,11 @@ import subprocess
 
 # Define the list of commands to run
 commands = [
-    ['python', 'db_cars.py'],
-    ['python', 'db_chiptuners.py'],
+    ['python', 'db_country_id.py'],
     ['python', 'db_country_stat.py'],
     ['python', 'db_manufacturers.py'],
-    ['python', 'db_country_id.py']
+    ['python', 'db_cars.py'],
+    ['python', 'db_chiptuners.py'],
 ]
 
 # Iterate through the commands and run each one

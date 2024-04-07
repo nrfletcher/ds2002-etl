@@ -5,10 +5,10 @@ import sqlite3
 conn = sqlite3.connect('automotives.db')
 cursor = conn.cursor()
 
-# Create the 'manufacturers' table
+# Create the 'country' table
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS country_id (
-        id INTEGER PRIMARY KEY,
+    CREATE TABLE IF NOT EXISTS country (
+        country_id INTEGER PRIMARY KEY,
         name TEXT,
         cca2 TEXT,
         ccn3 TEXT,
@@ -19,6 +19,7 @@ cursor.execute("""
     )
 """)
 
+# Use a set to ignore duplicates
 unique_countries = set()
 
 # Open the CSV file and insert the data into the 'manufacturers' table
@@ -28,7 +29,9 @@ with open('sources/manufacturers.csv', 'r') as csv_file:
         make, country, year = row
         unique_countries.add(country)
 
+# Hong Kong was labeled for Infiniti, this is not accurate
 unique_countries.remove('Hong Kong')
+# Countries API does not like UK abbreviation, must use GB but later it uses UK anyways (???)
 unique_countries.add('GB')
 unique_countries.remove('UK')
 
@@ -38,7 +41,8 @@ for country in unique_countries:
 
     if response.status_code == 200:
         data = response.json()
-        
+
+        # Getting all the fields we want, mostly name and location related        
         cname = data[0]['name']['common']
         cca2 = data[0]['cca2']
         ccn3 = data[0]['ccn3']
@@ -47,7 +51,7 @@ for country in unique_countries:
         region = data[0]['region']
         subregion = data[0]['subregion']
 
-        cursor.execute("INSERT INTO country_id (name, cca2, ccn3, cca3, cioc, region, subregion) VALUES (?, ?, ?, ?, ?, ?, ?)", (cname,
+        cursor.execute("INSERT INTO country (name, cca2, ccn3, cca3, cioc, region, subregion) VALUES (?, ?, ?, ?, ?, ?, ?)", (cname,
                 cca2,
                 ccn3,
                 cca3,
@@ -55,7 +59,6 @@ for country in unique_countries:
                 region,
                 subregion))
         
-        print(data[0]['name']['common'])
     else:
         print(f"Error: {response.status_code} - {response.text}")
 

@@ -1,4 +1,4 @@
--- Database: `my_database`
+-- Database: `automotives`
 
 -- --------------------------------------------------------
 
